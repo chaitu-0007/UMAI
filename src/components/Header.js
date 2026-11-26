@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { ShoppingBag ,House,Info,Mail,UserRound,History,LogIn} from "lucide-react";
+import UserContext from "../utils/UserContext"
 
 const Header = ({ isDarkMode, setIsDarkMode }) => {
     const [BtnNameReact, setBtnNameReact] = useState("login");
     const OnlineStatus = useOnlineStatus();
-
+    const {loggedInUser} = useContext(UserContext);
     return (
         <div className="sticky top-0 flex justify-between items-center bg-[#DCE3ED] backdrop:blur-md duration-300 shadow-lg px-6 py-3 z-50 transition-colors dark:bg-[#0B0B12]">
             
@@ -93,6 +94,9 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
                     >
                         {BtnNameReact}
                     </button>
+                     <li className="px-4 py-2 font-semibold text-[#542900] dark:text-[#E5E7EB] transition-colors duration-300 hover:text-[#7C3AED] dark:hover:text-[#DC2626]">
+                        user:{loggedInUser}
+                    </li>
                 </ul>
             </div>
         </div>

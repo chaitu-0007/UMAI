@@ -10,7 +10,7 @@ import RestaunrantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 import { lazy,Suspense } from "react";
 import Shimmer from "./components/Shimmer";
-
+import UserContext from "./utils/UserContext";
 
 
 const Grocery = lazy(()=>import("./components/Grocery"));
@@ -20,12 +20,21 @@ const AppLayout = () =>{
     const [isDarkMode ,setIsDarkMode]=useState(()=>{
         return localStorage.getItem("darkmode")==="true";
     });
+    useEffect(()=>{
+        const data ={
+            name: "Chaitanya Gaganam",
+        };
+        setUserName(data.name);
 
+    },[])
+
+    const [userName,setUserName]=useState();
 
     useEffect(()=>{
         localStorage.setItem("darkmode",isDarkMode);
     },[isDarkMode]);
     return (
+        <UserContext.Provider value ={{loggedInUser:userName}}>
         <div className={`app ${isDarkMode ? "dark" : ""}`}>
             <Header 
             isDarkMode={isDarkMode}
@@ -33,6 +42,7 @@ const AppLayout = () =>{
             />
             <Outlet/>
         </div>
+        </UserContext.Provider>
     );
 };
 

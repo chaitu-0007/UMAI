@@ -1,0 +1,35 @@
+{
+  "name": "reactjs",
+  "version": "1.0.0",
+  "description": "this is a react app created by chaitanya gaganam",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaitu-0007/reactjs.git"
+  },
+  "author": "chaitanya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chaitu-0007/reactjs/issues"
+  },
+  "homepage": "https://github.com/chaitu-0007/reactjs#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "lucide-react": "^1.54.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router": "^7.18.4",
+    "react-router-dom": "^7.18.4",
+    "tailwindcss": "^4.3.3"
+  },
+  "browsersList": [
+    "last 2 versions"
+  ]
+}
